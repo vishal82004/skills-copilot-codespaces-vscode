@@ -1,27 +1,9 @@
-//create a web server that listens on port 3000
-const http = require('http');
-const fs = require('fs');
-const port = 3000;
-
-const server = http.createServer(function(req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-
-    // read the comments.json file
-    fs.readFile('comments.json', function(error, data) {
-        if (error) {
-            res.writeHead(404);
-            res.write('Error: File Not Found');
-        } else {
-            res.write(data);
-        }
-        res.end();
-    });
-});
-
-server.listen(port, function(error) {
-    if (error) {
-        console.log('Something went wrong', error);
-    } else {
-        console.log('Server is listening on port ' + port);
-    }
-});
+//createweb server
+const express = require('express');
+const app = express();
+//import the comments array from the comments.js file
+const comments = require('./comments');
+//import the comments array from the comments.js file
+const contacts = require('./contacts');
+//import the comments array from the comments.js file
+const products = require('./products');
